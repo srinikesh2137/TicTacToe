@@ -1,18 +1,15 @@
-import java.util.Scanner;
 public class TicTacToe {
+    static char[][] board = {
+            {'-', '-', '-'},
+            {'-', '-', '-'},
+            {'-', '-', '-'}
+    };
     public static void main(String[] args) {
-        int slot = getUserInput();
-        System.out.println("You selected slot: " + slot);
+        System.out.println(isValidMove(1, 1));
     }
-    public static int getUserInput() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter a slot number (1-9): ");
-        int slot = sc.nextInt();
-        while (slot < 1 || slot > 9) {
-            System.out.print("Invalid input! Enter number between 1-9: ");
-            slot = sc.nextInt();
-        }
-
-        return slot;
+    static boolean isValidMove(int row, int col) {
+        return (row >= 0 && row < 3 &&
+                col >= 0 && col < 3 &&
+                board[row][col] == '-');
     }
 }
